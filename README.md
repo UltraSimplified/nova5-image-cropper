@@ -88,7 +88,7 @@ class Post extends Resource
                 ->convert('webp')
 
             // Store to AWS S3
-            AdvancedImage::make('photo')
+            ImageCropper::make('photo')
                 ->disk('s3'),
 
             // Specify a custom subdirectory
