@@ -1,4 +1,12 @@
 # Release Notes
+## [v2.3.2](https://github.com/ultrasimplified/nova5-image-cropper/compare/v2.3.1...v2.3.2)
+
+### Fixed
+
+- `resize()` now scales images down keeping their aspect ratio, and never enlarges them. It called Intervention Image 3 with the v2 constraint callback, which v3 ignores, so uploads were forced to the given width at their original height - stretched rather than scaled.
+
+> Released 2026/10/20
+
 ## [v.2.3.1](https://github.com/ultrasimplified/nova5-image-cropper/compare/v2.3.0...v2.3.1)
 
 ### Added

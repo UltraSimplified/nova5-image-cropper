@@ -237,10 +237,11 @@ trait TransformableImage
      */
     private function resizeImage()
     {
-        $this->image->resize($this->width, $this->height, function ($constraint) {
-            $constraint->upsize();
-            $constraint->aspectRatio();
-        });
+        // Intervention Image 3: scaleDown() keeps the aspect ratio and never
+        // enlarges. resize() would force the given width and keep the
+        // original height, stretching the image; v3 ignores the v2-style
+        // constraint callback this used to pass.
+        $this->image->scaleDown($this->width, $this->height);
     }
 
 }
